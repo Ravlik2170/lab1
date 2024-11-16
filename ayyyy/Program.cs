@@ -26,7 +26,6 @@ namespace ayyyy
             Console.WriteLine(person1.familia);
             Console.WriteLine(person1.dateofbirth);
             Console.WriteLine(person1.frequency);
-            Console.WriteLine(article1.person);
 
 
 
