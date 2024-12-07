@@ -20,7 +20,7 @@ namespace lab33
 
         Color Defaultcolor
         {
-            get { return Color.Black; }
+            get { return Color.White; }
         }
         
         void CreateBlank(int width, int height)
@@ -55,10 +55,16 @@ namespace lab33
             get { return trackBar1.Value; }
         }
 
-        readonly Brush _selectedBrush;
+        Brush _selectedBrush;
 
 
-        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+     
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new QuadBrush(SelectedColor, SelectedSize);
+        }
+
+        private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             if (_selectedBrush == null)
             {
@@ -69,12 +75,12 @@ namespace lab33
             _mouseClicked = true;
         }
 
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        private void button1_MouseUp(object sender, MouseEventArgs e)
         {
             _mouseClicked = false;
         }
 
-        private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
+        private void button1_MouseMove(object sender, MouseEventArgs e)
         {
             _x = e.X > 0 ? e.X : 0;
             _y = e.Y > 0 ? e.Y : 0;
@@ -83,6 +89,11 @@ namespace lab33
                 _selectedBrush.Draw(pictureBox1.Image as Bitmap, _x, _y);
                 pictureBox1.Refresh();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
